@@ -15,6 +15,24 @@
         <link rel="stylesheet" href="css/jquery.fullpage.css">
 
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <style>
+            .slide{
+                text-align: center;
+            }
+            .section1{
+                background-color: #00A000;
+            }
+            .section2{
+                background-color: #0b97c4;
+            }
+            .section3{
+                background-color: #cc0000;
+            }
+            .section4{
+                background-color: #eb9316;
+            }
+        </style>
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -22,7 +40,48 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="fullpage">
+                        <div class="section section1">
+                            <h4>1</h4>
+                            <div class="slide">
+                                <strong>幻灯片11</strong>
+                            </div>
+                            <div class="slide">
+                                <strong>幻灯片12</strong>
+                            </div>
+                            <div class="slide">
+                                <strong>幻灯片13</strong>
+                            </div>
+                            <div class="slide">
+                                <strong>幻灯片14</strong>
+                            </div>
+                        </div>
+                        <div class="section section2">
+                            <h4>2</h4>
+                            <div class="slide">
+                                <strong>幻灯片2</strong>
+                            </div>
+                        </div>
+                        <div class="section section3">
+                            <h4>3</h4>
+                            <div class="slide">
+                                <strong>幻灯片3</strong>
+                            </div>
+                        </div>
+                        <div class="section section4">
+                            <h4>4</h4>
+                            <div class="slide">
+                                <strong>幻灯片4</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="js/jquery-1.9.1.js"></script>
         <script src="js/plugins.js"></script>
@@ -32,5 +91,12 @@
         <script src="js/vendor/scrolloverflow.js" ></script>
         <script src="js/vendor/jquery.easings.min.js"></script>
 
+        <script >
+            $(function(){
+                $("#fullpage").fullpage({
+                    sectionsColor:['red','blue','green','yellow']
+                });
+            })
+        </script>
     </body>
 </html>

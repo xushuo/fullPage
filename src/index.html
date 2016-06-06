@@ -150,8 +150,52 @@
                     srollOverflow:false,//内容超过满屏之后，是否显示滚动条。否则会显示滚动条。如果要滚动查看内容，还需要jQuery.slimscroll插件的配合，
                     //sectionSelector:'.section',//section选择器，默认为.section。
                     //slideSelector:.slide,//slide的选择器，默认为.slide。
+                    afterLoad:function(anchorLink,index){
+                        console.log("锚链接的名称："+anchorLink+",锚链接的序号是："+index);
+                    },
+                    onLeave:function(index,nexIndex,direction){
+                        console.log("离开序号："+index+",目标序号是："+nexIndex+",方向："+direction);
+                    }
                 });
             })
+            /*
+            * $.fn.fullpage.xxx();
+            *
+            * 向上滚动一页
+            * moveSectionUp()
+            *
+            * 向下滚动一页
+            * moveSectionDown()
+            *
+            * 滚动到第几页，第几个幻灯片。注意页面是从1开始，幻灯片是从0开始。
+            * moveTo(section,slide);
+            *
+            * 同上，但是没有动画效果
+            * silentMoveTo(section,slide);
+            *
+            * 幻灯片向右滚动
+            * moveSlideRight()
+            *
+            * 幻灯片向左滚动
+            * moveSlideLeft()
+            *
+            * https://github.com/alvarotrigo/fullPage.js
+            *
+            * 回调函数
+            *
+            * afterLoad(anchorLink,index)
+            * 滚动到某一个section，触发。锚链接名称和序号。
+            *
+            *
+            * onLeave(index,nexIndex,direction)
+            * 当离开一个section，触发。
+            *   index：离开页面的序号，1开始计算
+            *   nextIndex：滚动到目标页面的序号，从1开始计算
+            *   direction：判断是往上滚动还是往下滚动，值是up或者down
+            * return false；可以取消滚动
+            *
+            * **/
+
         </script>
     </body>
 </html>

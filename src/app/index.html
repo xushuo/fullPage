@@ -1,0 +1,196 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>FULLPAGE</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../js/bootstrap-3.0.0/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/jquery.fullpage.css">
+    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    <style>
+        .slide{
+            text-align: center;
+        }
+        .section1{
+            background-color: #00A000;
+        }
+        .section2{
+            background-color: #0b97c4;
+        }
+        .section3{
+            background-color: #cc0000;
+        }
+        .section4{
+            background-color: #eb9316;
+        }
+        #header{
+            top:0;
+            position: fixed; /*重要*/
+            left: 200px
+        }
+        #fullpageMenu{
+            background-color: #D5D7D6;
+            top:0;
+            position: fixed; /*重要*/
+            left: 400px;
+            z-index:999
+        }
+    </style>
+
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="header" id="header">
+                <h5>我不会变的。哈哈</h5>
+                <p>menu1234</p>
+            </div>
+            <ul id="fullpageMenu">
+                <li data-menuanchor="page1"><a href="#page1">1</a></li>
+                <li data-menuanchor="page2"><a href="#page2">2</a></li>
+                <li data-menuanchor="page3"><a href="#page3">3</a></li>
+                <li data-menuanchor="page4"><a href="#page4">4</a></li>
+            </ul>
+            <div id="fullpage">
+                <div class="section section1">
+                    <h4>1</h4>
+                    <div class="slide">
+                        <strong>幻灯片11</strong>
+                    </div>
+                    <div class="slide">
+                        <strong>幻灯片12</strong>
+                    </div>
+                    <div class="slide">
+                        <strong>幻灯片13</strong>
+                    </div>
+                    <div class="slide">
+                        <strong>幻灯片14</strong>
+                    </div>
+                </div>
+                <div class="section section2 active">
+                    <h4>2</h4>
+                    <div class="slide">
+                        <strong>幻灯片2</strong>
+                    </div>
+                </div>
+                <div class="section section3">
+                    <h4>3</h4>
+                    <div class="slide">
+                        <strong>幻灯片3</strong>
+                        <p>ssasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassa</p>
+                        <p>ssasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassassasaasassa</p>
+                    </div>
+                </div>
+                <div class="section section4">
+                    <h4>4</h4>
+                    <div class="slide">
+                        <strong>幻灯片4</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/jquery-1.9.1.js"></script>
+<script src="../js/plugins.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/bootstrap-3.0.0/js/bootstrap.js"></script>
+<script src="../js/jquery.fullPage.js"></script>
+<script src="../js/vendor/scrolloverflow.js" ></script>
+<script src="../js/vendor/jquery.easings.min.js"></script>
+
+<script >
+    $(function(){
+        $("#fullpage").fullpage({
+            sectionsColor:['red','blue','green','yellow'],//设置幻灯片颜色属性
+            controlArrows:true, //定义是否通过箭头控制slide幻灯片。默认为true
+            verticalCentered:true,//定义每一页内容是否垂直居中。
+            resize:false,//定义字体是否随着窗体大小变化，默认false
+            scrollingSpeed:700,//滚动速度，单位毫秒默认700
+            anchors:['page1','page2','page3','page4'],//定义锚链接，注意，值不要和页面中任意id或者name相同。
+            lockAnchors:false,//是否锁定锚链接，
+            easing: 'easeInOutCubic',//定义section滚动的动画方式，需要jQuery,easings插件或者jQuery ui
+            css3:true,//是否使用css3 transforms来实现滚动效果。
+            loopTop:false,//滚动到最顶部之后是否连续滚动到底部。默认false
+            loopBottom:false,//滚动到最底部之后是否连续滚动到顶部。默认false
+            loopHorizontal:true,//横向slider幻灯片是否循环滚动，默认true
+            autoScrolling:true,//是否使用插件的滚动方式。默认true。否则会使用浏览器自带的滚动条，将不会按页滚动。
+            scrollBar:false,//是否包含滚动条。否则浏览器自带的滚动条就会出现。页面滚动还是按页滚动，但是滚动条的默认行为还是有效的
+            paddingTop:0,//设置section的padding。
+            paddingBottom:0,//
+            fixedElements:'#header',//固定的元素。默认null。需要配置一个jQuery选择器，在页面滚动的时候，改配置的元素固定不动。
+            keyboardSrolling:true,//是否可以使用键盘方向键导航
+            touchSensitivity:5,//在移动设备中滑动页面的敏感性，默认5，最高100.越大越难滑动、
+            continuousVertical:false,//是否循环滚动。默认false。如果设置为true，则页面会循环滚动，而不像looptop那样出现跳动，注意这个属性和looptop不兼容。
+            animateAnchor:true,//锚链接是否可以控制滚动动画。。否则通过锚链接定位到某个页面显示不再有动画效果。
+            recordHistory:true,//是否记录历史，默认true。
+            menu:'#fullpageMenu',//绑定菜单，设置的相关属性和anchors的值对应后，菜单就可以控制滚动，默认为false，可以设置为菜单的jQuery选择器。
+            navigation:true,//是否显示导航，默认false。否则会显示小圆点。
+            navigationPosition:'right',//位置。left或者right。
+            navigationTooltips:['this is page1','this is page2','this is page3','this is page4'],//导航小圆点的tooltips设置，注意按照顺序设置。
+            showActiveTooltip:false,//是否显示当前页面的导航的tooltip信息
+            slidesNavigation:false,//是否显示横向幻灯片的导航。
+            slidesNavPosition:'bottom',//横向幻灯片导航的位置。默认bottom，可以为top
+            srollOverflow:false,//内容超过满屏之后，是否显示滚动条。否则会显示滚动条。如果要滚动查看内容，还需要jQuery.slimscroll插件的配合，
+            //sectionSelector:'.section',//section选择器，默认为.section。
+            //slideSelector:.slide,//slide的选择器，默认为.slide。
+            afterLoad:function(anchorLink,index){
+                console.log("锚链接的名称："+anchorLink+",锚链接的序号是："+index);
+            },
+            onLeave:function(index,nexIndex,direction){
+                console.log("离开序号："+index+",目标序号是："+nexIndex+",方向："+direction);
+            }
+        });
+    })
+    /*
+     * $.fn.fullpage.xxx();
+     *
+     * 向上滚动一页
+     * moveSectionUp()
+     *
+     * 向下滚动一页
+     * moveSectionDown()
+     *
+     * 滚动到第几页，第几个幻灯片。注意页面是从1开始，幻灯片是从0开始。
+     * moveTo(section,slide);
+     *
+     * 同上，但是没有动画效果
+     * silentMoveTo(section,slide);
+     *
+     * 幻灯片向右滚动
+     * moveSlideRight()
+     *
+     * 幻灯片向左滚动
+     * moveSlideLeft()
+     *
+     * https://github.com/alvarotrigo/fullPage.js
+     *
+     * 回调函数
+     *
+     * afterLoad(anchorLink,index)
+     * 滚动到某一个section，触发。锚链接名称和序号。
+     *
+     *
+     * onLeave(index,nexIndex,direction)
+     * 当离开一个section，触发。
+     *   index：离开页面的序号，1开始计算
+     *   nextIndex：滚动到目标页面的序号，从1开始计算
+     *   direction：判断是往上滚动还是往下滚动，值是up或者down
+     * return false；可以取消滚动
+     *
+     * **/
+
+</script>
+</body>
+</html>

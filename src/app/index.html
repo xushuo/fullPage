@@ -46,6 +46,18 @@
             height: 22px;
             margin: 20px auto;
         }
+        .col_2{
+            background-image: url("../img/logo_collection_sport.svg");
+            width: 190px;
+            height: 22px;
+            margin: 20px auto;
+        }
+        .col_3{
+            background-image: url("../img/logo_collection_primary.svg");
+            width: 190px;
+            height: 22px;
+            margin: 20px auto;
+        }
 
     </style>
 
@@ -61,7 +73,7 @@
             <div id="fullpage">
                 <div class="section section1">
                     <h1 id="head1">她终于来啦!</h1>
-                    <div id="intro1" style="margin-top: 300px">
+                    <div id="intro1" style="margin-top: 400px">
                         <p>我是无耻的介绍，哈哈哈</p>
                         <p>我是无耻的介绍，哈哈哈</p>
                         <p>我是无耻的介绍，哈哈哈</p>
@@ -71,8 +83,8 @@
                     <h1 id="head2" >真正与你贴近的个人设备</h1>
                 </div>
                 <div class="section section3">
-                    <h1 id="head3" >非同一般的精确计时</h1>
-                    <div id="intro3" >
+                    <h1 id="head3" style="margin-left: -2000px">非同一般的精确计时</h1>
+                    <div id="intro3" style="margin-left: 2000px;margin-top: 20px">
                         <p>我是无耻的介绍，哈哈哈</p>
                         <p>我是无耻的介绍，哈哈哈</p>
                         <p>我是无耻的介绍，哈哈哈</p>
@@ -82,18 +94,18 @@
                     <h1>在三个特点鲜明的系列中找到你的风格</h1>
                     <div class="row" style="margin-top: 20px">
                         <div style="margin: 10px;background-color: #f2f2f2;width: 30%;float: left">
-                            <img src="../img/edition_large_2x.jpg" width="200px" height="300px" >
+                            <img id="watch_img1" src="../img/edition_large_2x.jpg" width="200px" height="300px" >
                             <h4 class="col_1"></h4>
                             <p>我是无耻的介绍，哈哈哈</p>
                         </div>
                         <div style="margin: 10px;background-color: #f2f2f2;width: 30%;float: left">
-                            <img src="../img/edition_large_2x.jpg" width="200px" height="300px" >
-                            <h4 class="col_1"></h4>
+                            <img id="watch_img2" src="../img/sport_large_2x.jpg" width="200px" height="300px" >
+                            <h4 class="col_2"></h4>
                             <p>我是无耻的介绍，哈哈哈</p>
                         </div>
                         <div style="margin: 10px;background-color: #f2f2f2;width: 30%;float: left">
-                            <img src="../img/edition_large_2x.jpg" width="200px" height="300px" >
-                            <h4 class="col_1"></h4>
+                            <img id="watch_img3" src="../img/primary_large_2x.jpg" width="200px" height="300px" >
+                            <h4 class="col_3"></h4>
                             <p>我是无耻的介绍，哈哈哈</p>
                         </div>
                     </div>
@@ -120,9 +132,64 @@
             navigation:true,//是否显示导航，默认false。否则会显示小圆点。
             afterLoad:function(anchorLink,index){
                 console.log("锚链接的名称："+anchorLink+",锚链接的序号是："+index);
+                if(index==1){
+                    move('#head1').scale(1.5).end();
+                    move('#intro1').sub('margin-top', 300).end();
+                }
+                if(index==2){
+                    move('#head2').rotate(20).end(function(){
+                        move('#head2').rotate(-20).end(function(){
+                            move('#head2').rotate(20).end(function(){
+                                move('#head2').rotate(0).end();
+                            });
+                        });
+                    });
+                }
+                if(index==3){
+                    move('#head3').set('margin-left','0').end();
+                    move('#intro3').set('margin-left', '0').end();
+                }
+                if(index==4){
+                    move('#watch_img1').rotate(360).end(function(){
+                        move('#watch_img2').rotate(360).end(function(){
+                            move('#watch_img3').rotate(360).end(function(){
+                                move('.col_1').scale(1.2).end(function(){
+                                    move('.col_2').scale(1.2).end(function(){
+                                        move('.col_3').scale(1.2).end();
+                                    })
+                                })
+                            })
+                        })
+                    })
+                }
             },
             onLeave:function(index,nexIndex,direction){
                 console.log("离开序号："+index+",目标序号是："+nexIndex+",方向："+direction);
+                if(index==1){
+                    move('#head1').scale(1).end();
+                    move('#intro1').add('margin-top', 300).end();
+                }
+                if(index==2){
+                    move('#head2').rotate(20).end(function(){
+                        move('#head2').rotate(-20).end(function(){
+                            move('#head2').rotate(20).end(function(){
+                                move('#head2').rotate(0).end();
+                            });
+                        });
+                    });
+                }
+                if(index==3){
+                    move('#head3').set('margin-left','-2000px').end();
+                    move('#intro3').set('margin-left', '2000px').end();
+                }
+                if(index==4){
+                    move('#watch_img1').rotate(-360).end();
+                    move('#watch_img2').rotate(-360).end();
+                    move('#watch_img3').rotate(-360).end();
+                    move('.col_1').scale(1).end();
+                    move('.col_2').scale(1).end();
+                    move('.col_3').scale(1).end();
+                }
             }
         });
     })

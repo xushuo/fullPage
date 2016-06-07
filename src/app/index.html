@@ -14,10 +14,39 @@
         .slide{
             text-align: center;
         }
+        .section{
+            margin: 0;
+            text-align: center;
+            position: relative;
+        }
+        .section h1{
+            margin: 0;
+            padding-top: 50px;
+        }
+
         .section1{
             background: url("../img/hero_sunset_large_2x.jpg") no-repeat center;
             background-size: cover;
+            color: white;
         }
+        .section2{
+            background: #f2f2f2 url("../img/technology_hero_large_2x.jpg") no-repeat bottom;
+            background-size: 100%;
+        }
+        .section3{
+            background: url("../img/timekeeping_hero_large_2x.jpg") no-repeat center 300px;
+            background-size: 50%;
+        }
+        .section4{
+            text-align: center;
+        }
+        .col_1{
+            background-image: url("../img/logo_collection_edition.svg");
+            width: 190px;
+            height: 22px;
+            margin: 20px auto;
+        }
+
     </style>
 
 </head>
@@ -31,16 +60,43 @@
         <div class="col-md-12">
             <div id="fullpage">
                 <div class="section section1">
-                    <h4>1</h4>
+                    <h1 id="head1">她终于来啦!</h1>
+                    <div id="intro1" style="margin-top: 300px">
+                        <p>我是无耻的介绍，哈哈哈</p>
+                        <p>我是无耻的介绍，哈哈哈</p>
+                        <p>我是无耻的介绍，哈哈哈</p>
+                    </div>
                 </div>
                 <div class="section section2">
-                    <h4>2</h4>
+                    <h1 id="head2" >真正与你贴近的个人设备</h1>
                 </div>
                 <div class="section section3">
-                    <h4>3</h4>
+                    <h1 id="head3" >非同一般的精确计时</h1>
+                    <div id="intro3" >
+                        <p>我是无耻的介绍，哈哈哈</p>
+                        <p>我是无耻的介绍，哈哈哈</p>
+                        <p>我是无耻的介绍，哈哈哈</p>
+                    </div>
                 </div>
                 <div class="section section4">
-                    <h4>4</h4>
+                    <h1>在三个特点鲜明的系列中找到你的风格</h1>
+                    <div class="row" style="margin-top: 20px">
+                        <div style="margin: 10px;background-color: #f2f2f2;width: 30%;float: left">
+                            <img src="../img/edition_large_2x.jpg" width="200px" height="300px" >
+                            <h4 class="col_1"></h4>
+                            <p>我是无耻的介绍，哈哈哈</p>
+                        </div>
+                        <div style="margin: 10px;background-color: #f2f2f2;width: 30%;float: left">
+                            <img src="../img/edition_large_2x.jpg" width="200px" height="300px" >
+                            <h4 class="col_1"></h4>
+                            <p>我是无耻的介绍，哈哈哈</p>
+                        </div>
+                        <div style="margin: 10px;background-color: #f2f2f2;width: 30%;float: left">
+                            <img src="../img/edition_large_2x.jpg" width="200px" height="300px" >
+                            <h4 class="col_1"></h4>
+                            <p>我是无耻的介绍，哈哈哈</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,6 +106,7 @@
 <script src="../js/jquery-1.9.1.js"></script>
 <script src="../js/plugins.js"></script>
 <script src="../js/main.js"></script>
+<script src="../js/move.js"></script>
 <script src="../js/bootstrap-3.0.0/js/bootstrap.js"></script>
 <script src="../js/jquery.fullPage.js"></script>
 <script src="../js/vendor/scrolloverflow.js" ></script>
@@ -58,7 +115,7 @@
 <script >
     $(function(){
         $("#fullpage").fullpage({
-            verticalCentered:true,//定义每一页内容是否垂直居中。
+            verticalCentered:false,//定义每一页内容是否垂直居中。
             anchors:['page1','page2','page3','page4'],//定义锚链接，注意，值不要和页面中任意id或者name相同。
             navigation:true,//是否显示导航，默认false。否则会显示小圆点。
             afterLoad:function(anchorLink,index){
